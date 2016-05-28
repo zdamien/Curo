@@ -1,0 +1,31 @@
+Query.py is main library, plus timing and class comments.
+QueryServer.py is the server for taking requests
+queryPost.py populates it.
+
+fourhourQuery.py shows where I was after four hours.
+
+
+Testing:
+
+python QueryServer.py &
+python queryPost.py
+
+browser testing, URL and expected return: 
+
+http://localhost:8000/?identifier=foo&left=410&right=464
+[{"identifier":"bar","ranges":[420, 425],"intersection":5}, {"identifier":"bar","ranges":[460, 800],"intersection":4}, {"identifier":"foo","ranges":[37, 440],"intersection":30}, {"identifier":"foo","ranges":[460, 800],"intersection":4}] 
+
+http://localhost:8000/?identifier=foo&left=10&right=15
+[{"identifier":"bar","ranges":[12, 34],"intersection":3}, {"identifier":"foo","ranges":[12, 34],"intersection":3}]
+
+http://localhost:8000/?identifier=foo&left=0&right=0
+[]
+
+http://localhost:8000/?identifier=foo&left=0&right=-5
+[]
+
+http://localhost:8000/?identifier=foo&left=300&right=400
+[{"identifier":"foo","ranges":[37, 440],"intersection":100}]
+
+http://localhost:8000/?identifier=foo&left=400&right=300
+[]
