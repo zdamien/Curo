@@ -1,3 +1,5 @@
+*** Project written as a timed employment test, where I had to teach myself a lot of it on the fly.  Not 'finished' code. ***
+
 Query.py is main library, plus timing and class comments.
 QueryServer.py is the server for taking requests
 queryPost.py populates it.
